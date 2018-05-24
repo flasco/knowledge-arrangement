@@ -5,7 +5,12 @@
 * 捕获就是事件从父元素触发，依次传递给子元素。
 
 ```js
-event.stopPropatation();  // 阻止事件继续冒泡。
+//阻止事件默认行为和事件冒泡的方法是什么
+// 默认行为：
+event.preventDefault();
+// 冒泡:
+event.stopPropregation();
+event.cancelBubble();
 ```
 
 事件冒泡可以使用代理机制加以应用  
