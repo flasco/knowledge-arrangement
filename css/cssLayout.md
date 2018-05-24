@@ -12,3 +12,9 @@ css布局方式
 > box-sizing ： content-box || border-box || inherit;
 * 当设置为box-sizing:content-box时，将采用标准模式解析计算，也是默认模式；
 * 当设置为box-sizing:border-box时，将采用怪异模式解析计算；
+
+
+position定位 - fixed，relative，absolute，static，inherit
+position和float的区别？
+position脱离文档流和文本流。
+而float脱离了文档流，却没有脱离文本流。
