@@ -13,6 +13,7 @@ function get(url, fn){
       }
     }
   }
+  xhr.withCredentials = true; //支持跨域发送cookies
   xhr.send(null);
 }
 ```

@@ -1,7 +1,27 @@
 # JavaScript 基础
 ## js基本类型
-js的基本类型: null, undefined, number, boolean, string.
+js的基本类型: null, undefined, number, boolean, string, Symbol.
 引用类型: object, array, function.
+
+Symbol - 独一无二的值
+```js
+let type = {
+  t1: Symbol('类型1'), // 参数相当于注解，只起到区分作用，名字一样也是不一样的
+  t2: Symbol('类型2'),
+}
+```
+当使用if比较的时候，t1或是t2的值并无所谓，只要不一致即可，所以可以使用Symbol。
+
+Symbol还可以作为属性使用，但是只能用`[]`，不能用`.`
+```js
+let t = Symbol();
+let a = {};
+a[t] = '123';
+
+let b = {
+  [t]: '123'
+}
+```
 
 ## js强制类型转换
 强制类型转换的发生场景：
