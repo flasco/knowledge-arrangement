@@ -18,3 +18,9 @@ position定位 - fixed，relative，absolute，static，inherit
 position和float的区别？
 position脱离文档流和文本流。
 而float脱离了文档流，却没有脱离文本流。
+
+css选择器权值排列
+内联样式 1000
+id选择 100
+类选择 10
+相邻加法选择 0
