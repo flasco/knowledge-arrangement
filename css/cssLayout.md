@@ -21,6 +21,7 @@ position脱离文档流和文本流。
 
 css选择器权值排列
 内联样式 1000
-id选择 100
-类选择 10
-相邻加法选择 0
+id选择(#id) 100
+类选择(.classA .classB) 10
+相邻加法选择(.classA + .classB) 0
+!important 最优先（都有important的话就看选择器的权值）
