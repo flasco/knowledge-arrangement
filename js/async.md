@@ -2,7 +2,7 @@
 
 * js同步与异步的区别 -> 同步会阻塞代码的运行，而异步不会
 * 使用异步的场景 -> setTimeout, setInterval, Promise, ajax, 动态img加载, 事件绑定
-* 宏任务： setTimeout
+* 宏任务： setTimeout, setInterval
 * 微任务： Promise.then
 * 微任务优先于宏任务执行
 * Promise中的代码会立即执行
