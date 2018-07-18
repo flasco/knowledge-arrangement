@@ -12,7 +12,7 @@ event.preventDefault();
 event.stopPropregation();
 event.cancelBubble();
 ```
-
+## 事件代理 / 事件委托
 事件冒泡可以使用代理机制加以应用  
 当需要给一个无线懒加载的图片列表的每一个图片绑定事件的时候可以通过给父元素添加事件处理，
 完成对每一个图片的事件绑定，而不是重复的给每一个图片添加。
