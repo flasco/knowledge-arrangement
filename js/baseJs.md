@@ -12,6 +12,7 @@ let type = {
 }
 ```
 当使用if比较的时候，t1或是t2的值并无所谓，只要不一致即可，所以可以使用Symbol。
+无意义的数字或字符串被称为 `魔法数字/字符串`
 
 Symbol还可以作为属性使用，但是只能用`[]`，不能用`.`
 ```js
@@ -55,6 +56,26 @@ Object，Array，Boolean，Number，String，Function，Date，RegExp，Error
 引用类型的赋值只是指针地址的赋值，指向同一地址，共享同一个对象
 
 在js中，JSON是一个js对象，也是一种数据格式
+
+## for in & of
+for in遍历的是索引（即键名），而for of遍历的是元素值。
+for in 可以遍历obj或者是arr，但是可能会遍历到原型链上的属性，看具体的浏览器。
+for of 只能遍历iterable的变量, object不可以用of遍历。
+```js
+const obj = {
+  a: 1,
+  b: 2
+};
+const arr = [1, 2];
+
+for(let key in obj) {
+  console.log(obj[key]);
+}
+
+for(let value of arr) {
+  console.log(value);
+}
+```
 
 ## 手撕深对象拷贝
 ```js
