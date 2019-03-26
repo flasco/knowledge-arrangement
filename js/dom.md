@@ -1,8 +1,8 @@
 # DOM
 
-* dom是哪种基本的数据结构？ -> 树
-* dom常用的api？
-* dom的attr与property有什么区别？
+- dom 是哪种基本的数据结构？ -> 树
+- dom 常用的 api？
+- dom 的 attr 与 property 有什么区别？
 
 ```js
 // 常用api
@@ -19,9 +19,8 @@ div1.appendChild();
 
 // 优化dom操作的2个重要的api
 document.createDocumentFragment();
-requestAnimationFrame(()=>{});
-
+requestAnimationFrame(() => {});
 ```
 
-attr 是指attribute， 是html中标签元素的属性，比如a标签的href
-property是指js中object 的属性
+attr 是指 attribute， 是 html 中标签元素的属性，比如 a 标签的 href
+property 是指 js 中 object 的属性
