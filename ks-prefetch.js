@@ -1,4 +1,4 @@
-var getM3u8Url = () => {
+const getM3u8Url = () => {
   const obj = __APOLLO_STATE__.clients.graphqlServerClient;
   let m3u8Url = "";
   Object.keys(obj).some((key) => {
