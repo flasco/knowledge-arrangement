@@ -27,7 +27,7 @@
     <div class="child">
     我是垂直居中的,多点字可以变成多行文本我是垂直居中的
     </div>
-    <lable class="childAdd"></label>
+    <label class="childAdd"></label>
 </div>
 ```
 
