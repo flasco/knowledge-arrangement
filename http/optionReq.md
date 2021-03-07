@@ -1,7 +1,7 @@
-#options
+# options
 options 请求 - post 请求的时候在 network 页上会出现 2 条请求
-1、获取服务器支持的 HTTP 请求方法；
-2、用来检查服务器的性能。
+1、获取接口支持的接口类型，比如是否支持post，delete。
+2、用来检查接口是否支持跨域。
 
 预检请求是 CORS 中一种透明服务器验证机制。预检请求首先需要向另外一个域名的资源发送一个 HTTP OPTIONS 请求头，其目的就是为了判断实际发送的请求是否是安全的。
 
@@ -9,6 +9,8 @@ options 请求 - post 请求的时候在 network 页上会出现 2 条请求
 
 1. 简单请求，比如使用 Content-Type 为 application/xml 或 text/xml 的 POST 请求；
 2. header 中设置自定义头，比如 X-JSON、X-MENGXIANHUI 等。
+
+注意，在新版 chrome中无法看到options请求，
 
 # http 与 https 的区别
 
