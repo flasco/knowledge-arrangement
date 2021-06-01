@@ -10,7 +10,7 @@ options 请求 - post 请求的时候在 network 页上会出现 2 条请求
 1. 简单请求，比如使用 Content-Type 为 application/xml 或 text/xml 的 POST 请求；
 2. header 中设置自定义头，比如 X-JSON、X-MENGXIANHUI 等。
 
-注意，在新版 chrome中无法看到options请求，
+注意，在新版 chrome 的 network 中无法看到 options 请求，需要经过特殊配置才行
 
 # http 与 https 的区别
 
