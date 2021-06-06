@@ -21,11 +21,11 @@ event.cancelBubble();
 这样提高了性能，也节省了空间。
 
 ```js
-let div = document.getElementById('test');
-div.addEventListener('click', function(e) {
+let div = document.getElementById("test");
+div.addEventListener("click", function (e) {
   let target = e.target;
-  if (target.nodeName === 'IMG') {
-    alert('你点击了xx图片');
+  if (target.nodeName === "IMG") {
+    alert("你点击了xx图片");
   }
 });
 ```
