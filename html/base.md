@@ -18,3 +18,13 @@ Doctype 声明于文档最前面，告诉浏览器以何种方式来渲染页面
 ## 语义化
 
 HTML5 语义化标签是指正确的标签包含了正确的内容，结构良好，便于阅读，比如 nav 表示导航条，类似的还有 article、header、footer 等等标签。主要是便于爬虫解析，方便程序理解，给一些障碍人士更加方便的体验。
+
+## h5的新特性
+
+canvas，video，audio元素
+localstorage，sessionStorage
+更好的语义化元素等
+
+## css3新特性
+
+选择器，伪类、伪元素，动画、过度效果

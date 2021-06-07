@@ -5,8 +5,8 @@
 ```js
 function get(url, fn) {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', url, false); // false 代表是异步
-  xhr.onreadystatechange = function() {
+  xhr.open("GET", url, false); // false 代表是异步
+  xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         fn(xhr.responseText);
@@ -25,7 +25,11 @@ function get(url, fn) {
 - 4xx - 客户端请求错误，比如 404, 400 - 坏的请求, 401 - 未授权， 403 - 服务器理解但是拒绝访问
 - 5xx - 服务器错误
 
-200 的缓存和 304 的缓存的最大区别是 200 的缓存会优先读取本地缓存，除非到了过期时间，否则是不会访问服务器的，而 304 的协商缓存会在每一次的时候向服务器发送请求，根据服务器返回的内容决定是否要读取缓存。
+## 缓存
+
+请求的缓存分两种，分为强缓存与协商缓存，强缓存就是检测 header 的 Cache-Control 和 Expires 是否过了有效期，没的话直接用缓存，否则就发起请求。
+
+协商缓存是服务器根据 LastModified(文件最后修改时间) 以及 ETag(文件的 hash 值) 判断是否需要返回，如果无更新就直接返回 304，让服务器读取缓存。
 
 ## 跨域
 
@@ -41,9 +45,27 @@ function get(url, fn) {
 
 JSONP 可以用 img 来替代 script 吗？ 不可以，因为 img 只能用来 ping，它无法获取响应的文本内容，只能通过 onerror 和 onsuccess 来获取是否访问成功，是一种单向的通讯。
 
+### JSONP 的原理 & 实现
+
+script 允许跨域，且 script 请求的代码会直接执行，所以我们可以利用这一点进行请求，服务器端直接拼好代码，通过 url 上携带的参数对 cb 进行调用。
+
+```js
+const cb = (payload) => console.log(payload);
+
+<script src="http://localhost:3000/jsonp-xxx?cb=cb">
+
+/**
+  const cbStr = ctx.query.cb;
+  const result = JSON.stringify({asdasd: 111});
+  ctx.body = cbStr + `(${result})`;
+*/
+```
+
 ## get 与 post 的区别
 
-get 传参带在 url 里，post 传参带在 body 中。  
-因为浏览器或者是 web 服务器的原因，get 的传参长度有限制，而 post 的传参长度无限制，在 http 协议中并没有规定 get 或者是 post 的长度限制。  
-get 请求类似于查找的过程，用户获取数据，可以不用每次都与数据库连接，所以可以使用缓存。
-post 不同，post 做的一般是修改和删除的工作，所以必须与数据库交互，所以不能使用缓存。因此 get 请求适合于请求缓存。
+- get 传参带在 url 里，post 传参带在 body 中。
+- 因为浏览器或者是 web 服务器的原因，get 的传参长度有限制，而 post 的传参长度无限制，在 http 协议中并没有规定 get 或者是 post 的长度限制。
+- restful 语义化
+  - get 请求类似于查找的过程，用户获取数据，可以不用每次都与数据库连接，所以可以使用缓存。
+  - post 做的一般是修改的工作，所以不能使用缓存。
+- post 的参数不会暴露，在历史记录中无法被直接看到，更加安全。 duckduckgo 就允许使用 post 模式搜索

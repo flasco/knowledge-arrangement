@@ -1,5 +1,7 @@
 # 前端性能优化
 
+首先利用 chrome 的 performance、lighthouse 进行分析，查看瓶颈点，主要分为 2 种情况，比如网络请求缓慢，js 代码执行缓慢。如果网络请求缓慢就考虑缓存，压缩，cdn 来解决问题，如果是 js 执行缓慢，就考虑优化代码写法，比较常见的就是两个 for 循环导致加载时间长，可以考虑用 Map, Set，对查找进行优化，或者是 debounce，throttle 之类的。
+
 - 缓存（200, 304）
 - 图片懒加载(见 js 篇中的`async.md`)
 - 使用 cdn(实现原理见 http 篇的`optionReq.md`)

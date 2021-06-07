@@ -1,14 +1,15 @@
 # options
-options 请求 - post 请求的时候在 network 页上会出现 2 条请求
-1、获取接口支持的接口类型，比如是否支持post，delete。
-2、用来检查接口是否支持跨域。
 
-预检请求是 CORS 中一种透明服务器验证机制。预检请求首先需要向另外一个域名的资源发送一个 HTTP OPTIONS 请求头，其目的就是为了判断实际发送的请求是否是安全的。
+options 请求 - 其实是一种预检请求，主要有两种用途
+1、获取接口支持的请求类型，比如是否支持 post，delete。
+2、用来检查接口是否支持跨域。跨域的情况下需要设置特殊请求头才会触发 options 请求
 
 下面的 2 种情况需要进行预检：
 
 1. 简单请求，比如使用 Content-Type 为 application/xml 或 text/xml 的 POST 请求；
-2. header 中设置自定义头，比如 X-JSON、X-MENGXIANHUI 等。
+2. header 中设置自定义头，比如 X-[custom-name] 等。
+
+如果没设置 Access-Control-Max-Age 的话，每次请求都会发送 options，这时候可以设置 `Access-Control-Max-Age: 1728000` 来指定本次预检请求的有效期，单位是秒，没过期之前都不会再次发起。
 
 注意，在新版 chrome 的 network 中无法看到 options 请求，需要经过特殊配置才行
 
