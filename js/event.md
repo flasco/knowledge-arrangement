@@ -35,3 +35,21 @@ DOM 事件流：将事件分为三个阶段：捕获阶段、目标阶段、冒�
 
 当一个元素绑定多个事件的时候，优先执行捕获，从父级元素到子级的目标元素，然后从目标元素开始冒泡，冒泡按顺序执行。先绑定的先执行  
 控制是否为捕获还是冒泡可以通过 addEventListener('click', fn, true | false) 的第三个参数来控制，true 就是捕获, false 是冒泡，默认是 false
+
+## stopPropagation 和 preventDefault 有什么区别
+
+preventDefault 是阻止当前事件默认的行为，stopPropagation 是阻止事件继续冒泡
+
+```html
+<div class="A">
+  <a href="http://w3c.org" class="B onclick="alert('JavaScript Click Event');"
+    >点击链接</a
+  >
+</div>
+```
+
+如果什么都不做的情况下，给两个 dom 加上 click 的 listener，那么会先执行 a 标签的时间，然后执行 div 的事件，然后开始跳转。
+
+如果我们给 a 标签加了 preventDefault，就会阻止跳转链接的 action，div 还是会触发 action。
+
+如果我们给 a 标签加了 stopPropagation，不加 preventDefault，那么就不会阻止默认的事件，仅阻止事件冒泡。（也就是说，点击之后还是会正常跳转，但是点击 a 标签之后， div 的监听不会生效了，因为被阻断了
