@@ -1,4 +1,4 @@
-# hashhistory 与 browserhistory 的区别
+# hashHistory 与 browserHistory 的区别
 
 - browserHistory 需要 server 端支持，比如/asd，那 server 需要把所有 /asd/\* 的请求都转到请求前端资源。
 - hashHistory 中当#后面的字符串变化之时，浏览器并不会去发送一次 request，react-router 自己根据 url 去 render 相应的模块。
