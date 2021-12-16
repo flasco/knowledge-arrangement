@@ -64,3 +64,37 @@ fn main() {
 }
 
 ```
+
+impl里所定义的函数如果有带上 &self, 那么在实例化之后可以直接通过`.[method]()`来进行调用，like this.
+
+```rust
+
+#[derive(Debug)]
+struct Dog<'a> {
+    name: &'a str,
+    age: u32,
+}
+
+trait Eat {
+  fn favor_eat() -> ();
+  fn favor_ouu() -> ();
+}
+
+impl<'c> Dog<'c> {
+    fn new(name: &'c str, age: u32) -> Self {
+        Dog { name, age }
+    }
+    fn asd(&self) {
+        println!("asdqwe");
+    }
+    fn qwe() {
+        println!("qweert");
+    }
+}
+
+let a = Dog::new("123", 22);
+a.asd();
+Dog::qwe();
+a.qwe(); // Error
+
+```
