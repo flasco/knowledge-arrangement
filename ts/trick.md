@@ -10,11 +10,49 @@ enum 在编译的时候会有 key-value & value - key 的双重映射关系，�
 
 # as const
 
-在写react hook的时候会用到，把数组转成元组，避免定义报错
+在写 react hook 的时候会用到，把数组转成元组，避免定义报错
 
 ```ts
 const useXXX = () => {
   // ...
   return [a, setA] as const;
+};
+```
+
+# switch 中妙用 never 确保穷举完全
+
+> never 类型可以赋值给任何类型，然而，没有类型可以赋值给 never （除了 never 自身）。这就意味着你可以在 switch 语句中使用 never 来做一个穷尽检查。
+
+```ts
+type Shape = Circle | Square | Triangle;
+
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    default:
+      const _exhaustiveCheck: never = shape;
+      // Type 'Triangle' is not assignable to type 'never'.
+      return _exhaustiveCheck;
+  }
+}
+```
+
+# 定义一个构造函数
+
+```ts
+type SomeConstructor = {
+  new (s: string): SomeObject;
+};
+function fn(ctor: SomeConstructor) {
+  return new ctor("hello");
+}
+
+// 如果存在静态 function 的话
+interface CallOrConstruct {
+  new (s: string): Date;
+  (n?: number): number;
 }
 ```

@@ -14,3 +14,5 @@
 - [现代 JavaScript 教程](https://zh.javascript.info/) 这个挺全的，写的挺好
 
 - [Rust 编程之道](https://weread.qq.com/web/reader/0303203071848774030b9d6kc81322c012c81e728d9d180)
+
+- [typescript@4 中文文档](http://ts.yayujs.com/learn-typescript/#%E8%B5%B7%E5%9B%A0)
